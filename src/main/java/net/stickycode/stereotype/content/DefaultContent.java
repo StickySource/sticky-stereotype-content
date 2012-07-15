@@ -1,4 +1,4 @@
-package net.stickycode.stereotype.ui;
+package net.stickycode.stereotype.content;
 
 /**
  * A static default value for localised content

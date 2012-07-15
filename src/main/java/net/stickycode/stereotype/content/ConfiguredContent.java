@@ -10,8 +10,9 @@
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the Apache License Version 2.0 for the specific language governing permissions and limitations there under.
  */
-package net.stickycode.stereotype;
+package net.stickycode.stereotype.content;
 
+import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -19,14 +20,23 @@ import java.lang.annotation.Target;
 
 
 /**
- * This stereotype marks a component as being a <a href="http://martinfowler.com/eaaCatalog/plugin.html">plugin</a>.
- * 
- * Note that this is not meta annotated with {@link StickyComponent} as components are singular where as plugins are not.
- * 
- * It could be used to carry out context validation to ensure the pattern is being used appropriately.
+ * <p>The content of a system is often expected to change at runtime and is not defined by the development team, this annotation is used
+ * to mark a fields as being injected from an external system.</p>
+ *
+ * <p>Content fields must be of type String anything else will error</p>
+ *
+ * <p>If the field is a string then any localization will be carried out by the configuration system</p>
+ *
+ * <h3>TODO</h3>
+ * <p>Allow fields of type LocalizedContent</p>
+ * <p>For LocalizedContent content will be localized by the user associated with the request</p>
  */
-@Target(ElementType.TYPE)
+@Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface StickyPlugin {
-
+@Documented
+public @interface ConfiguredContent {
+  /**
+   * Describe the configuration such that someone reading this message could provide appropriate configuration
+   */
+  String value() default "";
 }

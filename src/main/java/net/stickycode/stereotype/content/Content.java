@@ -1,4 +1,4 @@
-package net.stickycode.stereotype.ui;
+package net.stickycode.stereotype.content;
 
 /**
  * Contract for separating the configuration of content from its use.
@@ -6,7 +6,7 @@ package net.stickycode.stereotype.ui;
  * <h3>Developer</h3>
  * 
  * A developer just wants to stereotype a piece of content as being external and let the system work out how to fill it in.
- * For using sticky content there are two things you need to do, mark it with {@link ConfiguredContent} and set the type to be
+ * For using StickyContent there are two things you need to do, mark it with {@link ConfiguredContent} and set the type to be
  * Content.
  * 
  * If String was not final we could use a proxy to resolve the localisation as needed. So we have this interface instead.
